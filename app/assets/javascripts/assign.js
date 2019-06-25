@@ -56,6 +56,7 @@ $(document).ready(function(){
 		{
 			alert("Please fill username and password");
 			username = "";
+			
 			password = "";
 			return false;
 		}
