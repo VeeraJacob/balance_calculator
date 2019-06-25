@@ -56,7 +56,6 @@ $(document).ready(function(){
 		{
 			alert("Please fill username and password");
 			username = "";
-			
 			password = "";
 			return false;
 		}
@@ -144,7 +143,7 @@ $(document).ready(function(){
 
 	$("#logout").click(function(){
 		// $.cookie("name", null);
-		//sessionStorage.clear();
+		sessionStorage.clear();
 		window.location.href = "/assignment/login"
 	})
 

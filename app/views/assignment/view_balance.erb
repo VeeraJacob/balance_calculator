@@ -1,3 +1,4 @@
+
 <html>
 	<body>
 		
@@ -19,9 +20,10 @@
 					<% @owedto.each do |result|%>
 						<tr>
 							<%
-								@user_name = User.findusername(result['to_id']).to_json
-								@user_name = JSON.parse @user_name
-								#byebug
+								# @user_name = User.findusername(result['to_id']).to_json
+								# @user_name = JSON.parse @user_name
+								transaction_history(result['to_id'])
+								# byebug
 							%>
 							<td><%=result['to_id']%></td>
 							<td><%=@user_name[0]['user_name']%></td>
@@ -46,8 +48,9 @@
 					<% @owedfrom.each do |result|%>
 						<tr>
 							<%
-								@user_name = User.findusername(result['from_id']).to_json
-								@user_name = JSON.parse @user_name
+								# @user_name = User.findusername(result['from_id']).to_json
+								# @user_name = JSON.parse @user_name
+								transaction_history(result['from_id'])
 								# byebug
 							%>
 							<td><%=result['from_id']%></td>
@@ -93,9 +96,10 @@
 					<select id = "fromselect">
 						<option>select</option>
 						<% @owedfrom.each do |owedfrom| 
-							curruser = User.where(id: owedfrom['from_id'])
+							# curruser = User.where(id: owedfrom['from_id'])
+							borrow_money_details(owedfrom['from_id'])
 							%>
-						<option value = "<%= owedfrom['from_id']%>"><%=curruser[0]['user_name']%></option>
+						<option value = "<%= owedfrom['from_id']%>"><%=@curruser[0]['user_name']%></option>
 						<%end%>
 					</select>
 			

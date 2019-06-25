@@ -1,6 +1,8 @@
 # require 'json'
 require 'digest/md5'
 class AssignmentController < ApplicationController
+include AssignmentHelper
+	
 	def index
 	end
 	
