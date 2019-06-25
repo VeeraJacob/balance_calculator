@@ -1,0 +1,31 @@
+<!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script> -->
+
+<html>
+
+<!-- <script src="/home/veeramani/sam/app/assets/javascripts/assign"></script> -->
+
+	<head>
+	</head>
+	<title>EXPENSES</title>
+	<body id="logintable">
+		<%= form_tag do%>
+		<b><p style="position:absolute; margin-left: 8%; margin-top: -2.7%;font-size:2vw;">LOGIN</p></b>
+		<table >
+			<tr>
+				<td><%= label_tag(:usrnm, "USERNAME")%></td>
+				<td><%= text_field_tag(:username)%></td>
+			</tr>
+			<tr>
+				<td><%= label_tag(:passnm, "PASSWORD")%></td>
+				<td><%= password_field_tag(:password)%></td>
+			</tr>
+			<tr>
+				<td><%= submit_tag("LOGIN" , :id => "loginbut") %></td>
+			</tr>
+		</table>
+			
+		<%end%>
+		<button style="position:absolute; margin-left: 20%; margin-top: -2.7%;" id="gosign" onclick="window.location.href = '/assignment/signup'">SIGNUP</button>
+	</body>
+
+</html>

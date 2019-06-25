@@ -1,0 +1,36 @@
+
+
+<html>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+
+<head>
+	<script type="text/javascript">
+		
+	$(document).ready(function(){
+
+		//alert($("#j").val());
+		$("#but").click(function(){
+			//alert("hi");
+			var fn = $("#fn").val();
+			var ln = $("#ln").val();
+			
+			//window.location.href = '?firstname='+fn+'&lastname='+ln;
+			$("#fn").val(fn);
+		});
+
+	//alert($("#j").val());
+	});
+	// alert($("#j").value);
+</script>
+</head>
+	<body>
+		<form>
+  			First name:<br>
+  			<input type="text" id="fn" name="firstname" placeholder = "ff"><br>
+  			Last name:<br>
+  			<input type="text" id="ln" name="lastname" placeholder = "<%=@lname%>"><br><br>
+  			<input type='button' id="but" value="submit" >
+		</form> 
+	</body>
+	
+</html>

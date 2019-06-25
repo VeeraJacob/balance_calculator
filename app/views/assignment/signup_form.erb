@@ -1,0 +1,24 @@
+<html>
+	<head>
+	</head>
+	<title>EXPENSES</title>
+	<body id="signuptable">
+		<b><p style="position:absolute; margin-left: 8%; margin-top: -2.7%;font-size:2vw;">SIGNUP</p></b>
+		<%= form_tag do%>
+		<table>
+			<tr>
+				<td><%= label_tag(:susrnm, "USERNAME")%></td>
+				<td><%= text_field_tag(:susername)%></td>
+			</tr>
+			<tr>
+				<td><%= label_tag(:spassnm, "PASSWORD")%></td>
+				<td><%= password_field_tag(:spassword)%></td>
+			</tr>
+			<tr>
+				<td><%= submit_tag("SIGNUP" , :id => "signupbut") %></td>
+			</tr>
+		</table>
+		<%end%>
+	</body>
+
+</html>

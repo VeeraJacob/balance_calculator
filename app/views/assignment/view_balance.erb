@@ -1,0 +1,135 @@
+<html>
+	<body>
+		
+		<%= form_tag do%>
+			<b id="title" style="text-transform: uppercase; font-size:2vw; text-align: left;"><%= label_tag(:susrnm, "HI  #{session[:username]}")%></b><br><br>
+		<%end%>
+
+		
+	<div>
+		<div style="display:none" id="totoggle" value="<%=params['id']%>">
+		<%if (@owedto.length > 0 )%>
+			<form name = "<%=@owedto[0]['from_id']%>">
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>NAME</th>
+						<th>Amount</th>
+					</tr>
+					<% @owedto.each do |result|%>
+						<tr>
+							<%
+								@user_name = User.findusername(result['to_id']).to_json
+								@user_name = JSON.parse @user_name
+								#byebug
+							%>
+							<td><%=result['to_id']%></td>
+							<td><%=@user_name[0]['user_name']%></td>
+							<td><%=result['amount']%></td>
+						</tr>
+					<%end%>
+				</table>
+				<br><br>
+			</form>
+		<%end%>
+	</div>
+
+	<div style="display:none" id="fromtoggle" value="<%=params['id']%>">
+		<%if (@owedfrom.length > 0 )%>
+			<form name = "<%=@owedfrom[0]['to_id']%>">
+				<table>
+					<tr>
+						<th>ID</th>
+						<th>NAME</th>
+						<th>Amount</th>
+					</tr>
+					<% @owedfrom.each do |result|%>
+						<tr>
+							<%
+								@user_name = User.findusername(result['from_id']).to_json
+								@user_name = JSON.parse @user_name
+								# byebug
+							%>
+							<td><%=result['from_id']%></td>
+							<%if @user_name.present?%>
+							<td><%=@user_name[0]['user_name']%></td>
+							<%end%>
+							<td><%=result['amount']%></td>
+						</tr>
+					<%end%>
+				</table>
+				<br><br>
+			</form>
+		<%end%>
+	</div>
+</div>
+		
+		<br><br><br><br><br>
+
+		<div id = "transfer" class = "transfer">
+		<%= form_tag do%>
+		<!-- <form> -->
+			<table>
+			<tr>
+				<td><p class="circle-with-text multi-line-text">Owed to Amount <%=@toamount%></p></td>
+				<td><p class="circle-with-text multi-line-text">Repay Amount <%=@fromamount%></p></td>
+			</tr>
+			<tr>
+				<td><%= label_tag(:tofrom, "TYPE")%></td>
+				<td><%= select_tag "tofrom", options_for_select(['owedto','owedfrom','select'],'select') %></td>
+			</tr>
+			<tr>
+				<td><%= label_tag(:to, "TO")%></td>
+			
+				<td>
+					<select id = "toselect" >
+						<option>select</option>
+						<% @check.each do |check| %>
+						<option value = "<%= check['id']%>"><%= check['user_name']%></option>
+						<%end%>
+					</select>
+
+
+					<select id = "fromselect">
+						<option>select</option>
+						<% @owedfrom.each do |owedfrom| 
+							curruser = User.where(id: owedfrom['from_id'])
+							%>
+						<option value = "<%= owedfrom['from_id']%>"><%=curruser[0]['user_name']%></option>
+						<%end%>
+					</select>
+			
+					<select id="dummy">
+						<option>select</option>
+					</select>
+				</td>
+			</tr>
+
+			<tr  style="display:none">
+				<td><%= label_tag(:frm, "FROM")%></td>
+				<td><%= text_field_tag(:from,@currid[0]['id'],disabled: true)%></td>
+			</tr>
+
+			<tr>
+				<td><%= label_tag(:amt, "AMOUNT")%></td>
+				<td><%= text_field_tag(:amount)%></td>
+			</tr>
+		<%end%>
+			<tr>
+				<td><input type="button" id="send" value = "SUBMIT"></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="owedto" value="LEND"></td>
+				<td><input type="button" id="owedfrom" value="BORROW"></td>
+				<td><input type="button" id="logout" value="LOGOUT"></td>
+
+
+			</tr>
+			</tr>
+		</table>
+	</form>
+		
+	</div>
+	
+	</body>
+</html>

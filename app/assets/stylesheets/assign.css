@@ -1,0 +1,100 @@
+
+#logintable, #signuptable{
+  /*border: 1px solid black;*/
+  margin-left:35%; 
+  margin-right:auto;
+  margin-top: 20%;
+  margin-bottom: auto;
+
+}
+table, th, td {
+  /*border: 1px solid black;*/
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 {
+  width: 100%;    
+  background-color: #f1f1c1;
+}
+#send, #loginbut, #signupbut, #owedto, #owedfrom, #logout, #gosign{
+	/*background-color: #4CAF50;*/
+	font-size: 16px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  -webkit-border-radius: 28;  
+  -moz-border-radius: 28;  
+  border-radius: 28px;
+}
+#send:hover , #loginbut:hover , #signupbut:hover , #owedto:hover , #owedfrom:hover , #logout:hover , #gosign:hover {
+  background-color: #000000; 
+  color: white;
+}
+body {
+  margin: 0;
+  background-color: lightgray;
+}
+.circles {
+  display: flex;
+}
+.circle-with-text {
+  background: linear-gradient(orange, red);
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  margin: 5px 20px;
+  font-size: 15px;
+  padding: 15px;
+  display: flex;
+  height: 80px;
+  width: 80px;
+  color: #fff;
+}
+.multi-line-text {
+  font-size: 20px;
+}
+
+select {
+        width: 100%;
+        margin: 0px;
+    }
+select:focus {
+    min-width: 100px;
+    width: 100%;
+}   
+#logout{
+  position: absolute;
+  margin-top: 13%;
+  margin-left: -93%;
+  width: 89%;
+}
+#send{
+  position: absolute;
+  /*margin-top: %;*/
+  margin-left: 0%;
+  /*height: 0%;*/
+  width: 87%;
+}
+#owedfrom{
+  position: absolute;
+  margin-left: 5%;
+  margin-top: 3%;
+  width: 40%;
+}
+#owedto{
+  position: absolute;
+  margin-top: 3%;
+  width: 40%;
+}
+#signupbut{
+  position: absolute;
+  /*margin-top: %;*/
+  margin-left: -1%;
+  /*height: 0%;*/
+  width: 24.5%;
+}
+
+/*style="position:absolute; margin-left: 10%;"*/
